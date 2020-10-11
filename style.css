@@ -1,0 +1,44 @@
+td {
+  border: 2px solid black;
+}
+
+.buttons {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.button {
+  background-color: white;
+  color: black;
+  border: 2px solid #4caf50;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+}
+.button:hover {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
+.cerinta {
+  text-align: center;
+}
+table {
+  margin: 0 auto;
+}
+
+.imagini {
+  text-align: center;
+}
+
+#galaxie {
+  border: 0 solid blueviolet;
+  border-radius: 0%;
+  width: 35%;
+}
+
+#textPos {
+  text-align: center;
+}

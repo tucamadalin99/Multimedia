@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="script.js"></script>
+        <title>Tema multimedia 1</title>
+    </head>
+    <body>
+        <div class="cerinta1">
+        <h3 class="cerinta">1. Adaugare linie tabel din cod js</h3>
+        <div class="buttons">
+        <button class="button" id="insert" class="buttons">Add row</button>
+        <button class="button" id="delete" class="buttons">Delete row</button>
+        </div>
+        <table id="tabel">
+            <tr>
+                <td>Celula 1.1</td>
+                <td>Celula 1.2</td>
+                <td>Celula 1.3</td>
+            </tr>
+            <tr>
+                <td>Celula 2.1</td>
+                <td>Celula 2.2</td>
+                <td>Celula 3.3</td>
+            </tr>
+        </table>
+                </div>
+        <script>
+            //Adaugare rand nou
+            document.getElementById("insert").addEventListener("click", function () {
+                let len = document.getElementById("tabel").rows[0].cells.length;
+                let rowLen = document.getElementById("tabel").rows.length;
+                let table = document.getElementById("tabel");
+                let row = table.insertRow(rowLen);
+                for (let i = 0; i < len; i++) {
+                    let cell = row.insertCell(i);
+                    cell.innerHTML = `Celula ${rowLen + 1}.${i + 1}`;
+                }
+
+            })
+
+            //Stergere rand
+            document.getElementById("delete").addEventListener("click", function () {
+                let table = document.getElementById("tabel");
+                let rowLen = table.rows.length;
+                if (rowLen === 1) {
+                    alert('Maximum delete limit!');
+                    return;
+                }
+                table.deleteRow(rowLen - 1);
+            })
+        </script>
+        <div class="cerinta2si3">
+            <h3 class="cerinta">2. Modificare proprietati img CSS la apasarea unui buton</h3>
+            <div class="buttons">
+                <button class="button" id="changeRadius">Rotunjeste poza</button>
+                <button class="button" id="pozStanga">Pozitioneaza stanga</button>
+                <button class="button" id="centreaza">Centreaza</button>
+                <button class="button" id="pozDreapta">Pozitioneaza dreapta</button>
+            </div>
+            <h3 class="cerinta">3. Interschimbarea imaginii la apasarea unui buton</h3>
+            <div class="buttons">
+                <button class="button" id="changeImg">Schimba imaginea</button>
+            </div>
+
+            <div id="imagini" class="imagini">
+                <img id="galaxie" src="imagini/img2.jpg" alt="Poza galaxie">
+            </div>
+        </div>
+        <script>
+            document.getElementById("changeRadius").addEventListener("click", function(){
+                document.getElementById("galaxie").style.borderRadius = "50%";
+            })
+            document.getElementById("pozStanga").addEventListener("click", function(){
+                document.getElementById("imagini").style.textAlign = "left";
+            })
+            document.getElementById("centreaza").addEventListener("click", function(){
+                document.getElementById("imagini").style.textAlign = "center";
+            })
+            document.getElementById("pozDreapta").addEventListener("click", function(){
+                document.getElementById("imagini").style.textAlign = "right";
+            })
+            let index = 1;
+            document.getElementById("changeImg").addEventListener("click", function(){
+                let imgSrc = ['img2.jpg', 'img3.jpg', 'img4.jpg'];
+                             if(index === imgSrc.length){
+                                 index = 0;
+                             }
+                document.getElementById('galaxie').src = `imagini/${imgSrc[index]}`
+                                             index++;
+            })
+        </script>
+        <h3 class="cerinta">4. Schimbarea pozitionarii unui tag printr-un buton</h3>
+        <div class="buttons">
+            <button class="button" id="changePoz">Schimba pozitia textului</button>
+        </div>
+        <h1 id="textPos">Text Test pozitie</h1>
+        <script>
+            let txtPoz = ['left', 'right', 'center'];
+            let i = 1;
+            document.getElementById("changePoz").addEventListener("click", function(){
+                if(i === txtPoz.length){
+                    i = 0;
+                }
+                document.getElementById("textPos").style.textAlign = txtPoz[i];
+                document.getElementById("textPos").innerHTML = `${txtPoz[i]}`
+                i++;
+            })
+        </script>
+        <div class="cerinta5">
+            <h3 class="cerinta">5. Modificarea marimii unui buton la un eveniment</h3>
+            <div class="buttons">
+                <button class="button" id="sizeBtn">Schimba marime</button>
+                <script>
+                    let btn = document.getElementById("sizeBtn");
+                    btn.addEventListener("click", function(){
+                        btn.style.width = "100px";
+                        btn.style.height = "100px";
+                        btn.style.textAlign = "left"
+                    })
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
+
+<!-- Multimedia:
+1)Cum adaug din cod o noua linie in tabel
+2) cum modificam proprietatile css ale unei imagini
+3) cum interschimbam din cod imaginile la apasarea unui  buton
+4)cum schimbam pozitia de pe ecran a unui tag la apasarea unui buton
+5)cum modificam dimensiunile unui buton la un anumit eveniment(click pe el, alt eveniment) -->
