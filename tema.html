@@ -11,10 +11,12 @@
             <p>Grupa: 1079 Seria: C</p>
         </div>
         <div class="cerinta1">
-        <h3 class="cerinta">1. Adaugare linie tabel din cod js</h3>
+        <h3 class="cerinta">1. Adaugare linie/coloane tabel din cod js</h3>
         <div class="buttons">
         <button class="button" id="insert" class="buttons">Add row</button>
         <button class="button" id="delete" class="buttons">Delete row</button>
+        <button class="button" id="insertCol" class="buttons">Add column</button>
+        <button class="button" id="deleteCol" class="buttons">Delete column</button>
         </div>
         <table id="tabel">
             <tr>
@@ -25,7 +27,7 @@
             <tr>
                 <td>Celula 2.1</td>
                 <td>Celula 2.2</td>
-                <td>Celula 3.3</td>
+                <td>Celula 2.3</td>
             </tr>
         </table>
                 </div>
@@ -52,6 +54,24 @@
                     return;
                 }
                 table.deleteRow(rowLen - 1);
+            })
+
+            //Adaugare coloana
+            document.getElementById("insertCol").addEventListener("click", function(){
+                let table = document.getElementById("tabel");
+                for(let i = 0; i < table.rows.length; i++){
+                   let cell = table.rows[i].insertCell();
+                   console.log(table.rows[i].length)
+                   cell.innerHTML = `Celula ${i + 1}.${table.rows[i].cells.length}`;
+                }
+            })
+
+            //Stergere coloane
+            document.getElementById("deleteCol").addEventListener("click", function(){
+                let table = document.getElementById("tabel");
+                for(let i = 0; i < table.rows.length; i++){
+                    table.rows[i].deleteCell(1);
+                }
             })
         </script>
         <div class="cerinta2si3">
@@ -99,7 +119,7 @@
             <button class="button" id="changePoz">Schimba pozitia textului</button>
         </div>
         <div id="movingTxt">
-        <h1 id="textPos">Text Test pozitie</h1>
+        <h1 id="textPos">div</h1>
         </div>
         <script>
             let txtPoz = ['left', 'center', 'right'];
