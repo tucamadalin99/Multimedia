@@ -2,10 +2,14 @@
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
-        <script type="text/javascript" src="script.js"></script>
         <title>Tema multimedia 1</title>
     </head>
     <body>
+        <div class="header">
+            <h2 id="titleHead">Tema multimedia #1</h2>
+            <p>Student: Tuca Madalin Gabriel</p>
+            <p>Grupa: 1079 Seria: C</p>
+        </div>
         <div class="cerinta1">
         <h3 class="cerinta">1. Adaugare linie tabel din cod js</h3>
         <div class="buttons">
@@ -94,15 +98,19 @@
         <div class="buttons">
             <button class="button" id="changePoz">Schimba pozitia textului</button>
         </div>
+        <div id="movingTxt">
         <h1 id="textPos">Text Test pozitie</h1>
+        </div>
         <script>
-            let txtPoz = ['left', 'right', 'center'];
+            let txtPoz = ['left', 'center', 'right'];
+            let divPoz = ['0%', '38%' , '75%']
             let i = 1;
             document.getElementById("changePoz").addEventListener("click", function(){
                 if(i === txtPoz.length){
                     i = 0;
                 }
-                document.getElementById("textPos").style.textAlign = txtPoz[i];
+                document.getElementById("movingTxt").style.position = "relative";
+                document.getElementById("movingTxt").style.left = `${divPoz[i]}`
                 document.getElementById("textPos").innerHTML = `${txtPoz[i]}`
                 i++;
             })
@@ -114,9 +122,8 @@
                 <script>
                     let btn = document.getElementById("sizeBtn");
                     btn.addEventListener("click", function(){
-                        btn.style.width = "100px";
-                        btn.style.height = "100px";
-                        btn.style.textAlign = "left"
+                        btn.style.width = "50%";
+                        btn.style.textAlign = 'center'
                     })
                 </script>
             </div>
